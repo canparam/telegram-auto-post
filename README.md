@@ -12,3 +12,5 @@ Create api token: https://my.telegram.org/
     content.txt
 
 Use WTelegramClient lib: [github](https://github.com/wiz0u/WTelegramClient)
+
+![image](https://github.com/user-attachments/assets/9762d643-9a97-4dbd-9347-4093c9d20aa5)
