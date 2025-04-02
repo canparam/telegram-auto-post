@@ -187,14 +187,16 @@ public static class Program
             var chats = await client.Messages_GetAllChats();
             InputPeer peer = chats.chats[long.Parse(group)];
             var text = $"{content} {GenerateRandomString(8)}";
+            var entities = Markdown.MarkdownToEntities(client,ref text);
+
 
             if (System.IO.File.Exists(@"photos/1.png"))
             {
                 var inputFile = await client.UploadFileAsync(@"photos/1.png");
-                await client.SendMediaAsync(peer, text, inputFile);
+                await client.SendMediaAsync(peer, text, inputFile, entities: entities);
                 return;
             }
-            await client.SendMessageAsync(peer, text);
+            await client.SendMessageAsync(peer, text, entities: entities);
 
         }
         catch (Exception ex)
